@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+ion-content {
+    // background-image: url(/assets/untitled-1.png);
+    // background-size: 800px 600px; /* Set a specific size for the background image */
+    // background-position: bottom;
+  }
+  
+.chef-oink-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 50vh; 
+  box-sizing: border-box; 
+  padding: 20px; 
+}
+
+.lobster-font {
+  font-family: 'Lobster', cursive;
+  font-size: 70px; 
+  margin-bottom: 20px; 
+}
+
+.custom-button {
+  margin-top: 10px; 
+}
+.button-container {
+    position: relative;
+    text-align: center;
+    min-height: 50vh;
+    padding-top: 10vh;
+    background-image: url(/assets/Untitled-1.png);
+    background-size: 300%;
+    background-position: top center;
+  }
+  
+//   .button-container::before {
+//     content: "";
+//     position: absolute;
+//     top: 190%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 650px; 
+//     height: 650px;
+
+//     background-image: url('../../assets/untitled-1.png');
+//     background-size: cover;
+//     z-index: -1;
+//   }
+  .login-btn {
+    --background: #FF802F; 
+    color: white;
+    margin-bottom: 10px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    display: block; 
+    width: 313px; 
+    height: 40px; 
+  
+  }
+  
+  
+  .signin-btn {
+    width: 313px; 
+    height: 40px; 
+//    --background:  #FF802F;
+    color: white; 
+    margin-bottom: 10px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    display: block; 
+    border: 2px solid white; 
+    border-radius: 30px;
+   
+  }
+  ion-button.login-btn span,
+ion-button.signin-btn span {
+  font-size: 18px; /* Adjust the font size */
+}

@@ -1,0 +1,31 @@
+<ion-header>
+  <!-- Header content -->
+</ion-header>
+
+<ion-content>
+  <div class="chef-oink-container">
+    <h1 class="lobster-font">Chef Oink</h1>
+  </div>
+
+  <div class="Backgroundpic">
+    <div class="form-container">
+      <form (ngSubmit)="signIn()">
+        <div class="oval-input name-input">
+          <ion-input type="text" [(ngModel)]="name" name="name" placeholder="Name"></ion-input>
+        </div>
+
+        <div class="oval-input surname-input">
+          <ion-input type="text" [(ngModel)]="surname" name="surname" placeholder="Surname"></ion-input>
+        </div>
+
+        <div class="oval-input username-input">
+          <ion-input type="text" [(ngModel)]="username" name="username" placeholder="Username"></ion-input>
+        </div>
+
+        <div *ngIf="error" class="error-message">{{ error }}</div>
+
+        <ion-button expand="full" shape="round" class="signin-btn" fill="outline" type="submit">Continue</ion-button>    
+      </form>
+    </div>
+  </div>
+</ion-content>

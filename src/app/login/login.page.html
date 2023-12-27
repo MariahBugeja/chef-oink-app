@@ -1,0 +1,26 @@
+<ion-content>
+  <div class="chef-oink-container">
+    <h1 class="lobster-font">Chef Oink</h1>
+  </div>
+
+  <div class="Backgroundpic">
+    <div class="form-container">
+      <form (ngSubmit)="login()">
+        <div class="oval-input name-input">
+          <ion-input type="text" [(ngModel)]="Email" name="Email" placeholder="Email"></ion-input>
+        </div>
+
+        <div class="oval-input surname-input">
+          <ion-input type="password" [(ngModel)]="Password" name="Password" placeholder="Password"></ion-input>
+        </div>
+
+        <ion-button expand="full" shape="round" class="signin-btn" fill="outline" type="submit">login</ion-button>
+      </form>
+
+      <!-- Error messages -->
+      <div *ngIf="error" class="error-message">
+        {{ error }}
+      </div>
+    </div>
+  </div>
+</ion-content>
