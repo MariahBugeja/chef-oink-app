@@ -27,6 +27,6 @@ export class LoginPage {
       return;
     }
 
-    this.router.navigate(['/index']); 
+    this.router.navigate(['/tab1']); 
   }
 }
