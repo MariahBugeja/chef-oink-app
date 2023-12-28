@@ -36,3 +36,34 @@
 font-style: Bold;
 }
 
+.Food{
+  max-width: 90%; 
+  height: 191px;
+}
+
+.slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  margin-top: 20px;
+}
+
+.slide {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  margin-right: 10px; 
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto; 
+  white-space: nowrap; 
+  -webkit-overflow-scrolling: touch; 
+  margin-top: 20px; 
+}
+
+.scroll-container ion-card {
+  flex: 0 0 auto;
+  margin-right: 10px; 
+}
+
