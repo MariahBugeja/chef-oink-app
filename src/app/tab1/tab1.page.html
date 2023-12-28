@@ -1,5 +1,13 @@
-<ion-content>
-<div>
+    <div>
+      <div class="location-selector">
+        <ion-icon name="location-sharp"></ion-icon>
+        <select id="location-selector" [(ngModel)]="selectedLocation">
+          <option value="default">Choose your location</option>
+          <option value="malta">Malta</option>
+          <option value="another-location">Another Location</option>
+        </select>
+      </div>
+  <div>
   <div>
   <ion-card class="Food">
     <img alt="Silhouette of mountains" src="assets/HealthyFood.png" />
@@ -29,7 +37,9 @@
     </ion-card>
   </div>
 </div>
+<h1 class="header-font">Most Popular</h1>
 <div class="scroll-container">
+  
   <ion-card class="custom-card1">
     <div class="image-wrapper">
       <img alt="Image 4" src="assets/8.png" />
@@ -63,4 +73,3 @@
     <p class="card-caption">Set Meal 2</p>
   </ion-card>
 </div>
-</ion-content>

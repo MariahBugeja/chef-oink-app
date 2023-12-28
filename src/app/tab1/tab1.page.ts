@@ -16,4 +16,6 @@ export class Tab1Page {
     { image: 'assets/9.png', alt: 'Image 9', caption: 'Set Meal 6' }
   ];
 
+  selectedLocation: string = 'default'; 
+
 }
