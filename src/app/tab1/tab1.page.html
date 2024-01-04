@@ -1,12 +1,14 @@
 <ion-content>
   <div class="content-wrapper">
-    <div class="location-selector">
-      <ion-icon name="location-sharp"></ion-icon>
-      <select id="location-selector" [(ngModel)]="selectedLocation">
-        <option value="default">Choose your location</option>
-        <option value="malta">Malta</option>
-        <option value="another-location">Another Location</option>
-      </select>
+    <div class="location-checkout">
+      <div class="location-selector">
+        <ion-icon name="location-sharp"></ion-icon>
+        <select id="location-selector" [(ngModel)]="selectedLocation" (change)="onLocationChange()">
+          <option value="default">Choose your location</option>
+          <option value="malta">Malta</option>
+          <option value="another-location">Another Location</option>
+        </select>
+      </div>
     </div>
   <div>
   <div>
@@ -42,7 +44,7 @@
 <div class="scroll-container">
   
   <ion-card class="custom-card1">
-    <a class="custom-link" href="cookie.html">
+    <a class="custom-link" href="cookie">
     <div class="image-wrapper">
       <img alt="Image 4" src="assets/8.png" />
     </div>

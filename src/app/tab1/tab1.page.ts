@@ -18,4 +18,14 @@ export class Tab1Page {
 
   selectedLocation: string = 'default'; 
 
+  ngOnInit() {
+    const savedLocation = localStorage.getItem('selectedLocation');
+    if (savedLocation) {
+      this.selectedLocation = savedLocation;
+    }
+  }
+
+  onLocationChange() {
+    localStorage.setItem('selectedLocation', this.selectedLocation);
+  }
 }
