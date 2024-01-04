@@ -93,3 +93,24 @@ font-style: Bold;
   margin-right: 10px; 
   margin-left: 10px; 
 }
+.custom-horizontal-card {
+  width: 80%;
+  margin-bottom: 20px;
+  background-color: orange; 
+}
+
+.horizontal-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.text-section {
+  flex: 1;
+  padding-right: 20px; 
+}
+
+.image-section {
+  width: 40%; 
+}

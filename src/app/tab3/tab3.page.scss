@@ -1,26 +1,23 @@
-/* Styling for Savory Items section */
+
 .savory-items-section {
-    padding: 20px; /* Adjust padding as needed */
+    padding: 20px; 
   }
   
   .savory-items-section ion-card {
-    margin-bottom: 20px; /* Adjust margin between cards */
-    /* Add other necessary styles for the cards */
-    /* ... */
+    margin-bottom: 20px; 
   }
   
-  /* Styling for the cards grid */
+  
   .cards-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 10px; /* Adjust padding as needed */
+    padding: 10px; 
   }
   
   .card-item {
-    width: calc(50% - 10px); /* Adjust card width and spacing */
-    margin-bottom: 20px; /* Adjust margin between cards */
-    /* Add other necessary styles for the cards */
-    /* ... */
+    width: calc(50% - 10px); 
+    margin-bottom: 20px; 
+
   }
   
