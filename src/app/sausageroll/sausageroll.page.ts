@@ -1,14 +1,15 @@
-
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-cookie',
-  templateUrl: './cookie.page.html',
-  styleUrls: ['./cookie.page.scss'],
+  selector: 'app-sausageroll',
+  templateUrl: './sausageroll.page.html',
+  styleUrls: ['./sausageroll.page.scss'],
 })
-export class CookiePage {
+export class SausagerollPage  {
+
   selectedSegment: string = 'description';
   quantity: number = 1;
   maxQuantity: number = 5;
@@ -29,14 +30,15 @@ export class CookiePage {
 
   addtoCart() {
     const selectedItem = {
-      name: 'Beef Patty',
-      price: 2.00,
+      name: 'sausage roll',
+      price: 3.00,
       quantity: this.quantity,
-      imageUrl: 'assets/images/9.png', 
+      imageUrl: 'assets/4.png', 
     };
 
     this.cartItems.push(selectedItem);
 
+    // Save the updated cart items 
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
 
     this.router.navigate(['/addtocart']);

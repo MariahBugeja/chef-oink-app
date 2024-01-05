@@ -7,24 +7,25 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./addtocart.page.scss'],
 })
 export class AddtocartPage implements OnInit {
-  selectedItem: any = {}; 
-  totalAmount: number = 0; 
+  cartItems: any[] = [];
+  totalAmount: number = 0;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor() {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const item = params.get('item');
-      if (item) {
-        this.selectedItem = JSON.parse(item);
-        this.calculateTotal(); 
-      } else {
-        console.error('No item found in parameters.');
-      }
-    });
+    const cartItemsString = localStorage.getItem('cartItems');
+    if (cartItemsString) {
+      this.cartItems = JSON.parse(cartItemsString);
+    } else {
+      this.cartItems = []; 
+    }
+    this.calculateTotal();
   }
 
   calculateTotal() {
-    this.totalAmount = this.selectedItem.price * this.selectedItem.quantity;
+
+    this.totalAmount = this.cartItems.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
   }
 }

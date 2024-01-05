@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'addtocart',
     loadChildren: () => import('./addtocart/addtocart.module').then( m => m.AddtocartPageModule)
   },
+  {
+    path: 'sausageroll',
+    loadChildren: () => import('./sausageroll/sausageroll.module').then( m => m.SausagerollPageModule)
+  },
 
 ];
 @NgModule({
