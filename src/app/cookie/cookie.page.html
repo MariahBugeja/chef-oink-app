@@ -59,15 +59,15 @@
             </ion-col>
           </ion-row>
             <ion-row>
-            <ion-col size="6">
-              <div class="quantity-buttons-left">
-                <button class="quantity-modifier" id="decrease-bottom">-</button>
-                <p class="quantity">1</p>
-                <button class="quantity-modifier" id="increase-bottom">+</button>
-              </div>
-            </ion-col>
+              <ion-col size="6">
+                <div class="quantity-buttons-left">
+                  <button class="quantity-modifier" id="decrease-bottom" (click)="decreaseQuantity()">-</button>
+                  <p class="quantity">{{ quantity }}</p>
+                  <button class="quantity-modifier" id="increase-bottom" (click)="increaseQuantity()">+</button>
+                </div>
+              </ion-col>
             <ion-col size="6" class="ion-text-right">
-              <button class="add-to-cart">
+              <button class="add-to-cart" (click)="addtoCart()">
                 Add to Cart 
                 <ion-icon name="cart-outline"></ion-icon> 
               </button>

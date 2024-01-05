@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'cookie',
     loadChildren: () => import('./cookie/cookie.module').then( m => m.CookiePageModule)
   },
+  {
+    path: 'addtocart',
+    loadChildren: () => import('./addtocart/addtocart.module').then( m => m.AddtocartPageModule)
+  },
 
 ];
 @NgModule({
