@@ -32,13 +32,19 @@ export class CookiePage {
       name: 'Beef Patty',
       price: 2.00,
       quantity: this.quantity,
-      imageUrl: 'assets/images/9.png', 
+      imageUrl: "assets/8.png",
     };
-
-    this.cartItems.push(selectedItem);
-
+  
+    const existingItemIndex = this.cartItems.findIndex(item => item.name === selectedItem.name);
+  
+    if (existingItemIndex !== -1) {
+      this.cartItems[existingItemIndex].quantity += this.quantity;
+    } else {
+      this.cartItems.push(selectedItem);
+    }
+  
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
-
+  
     this.router.navigate(['/addtocart']);
   }
 

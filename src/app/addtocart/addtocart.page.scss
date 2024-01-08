@@ -1,0 +1,20 @@
+.quantity-buttons-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+  .quantity-buttons-left ion-button {
+    background-color: #da7613;
+    color: white;
+    border: none;
+    padding: 2px 8px; 
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 5px;
+  }
+  
+  .quantity {
+    margin: 0 10px;
+  }
+  

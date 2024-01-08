@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./sausageroll.page.scss'],
 })
 export class SausagerollPage  {
-
   selectedSegment: string = 'description';
   quantity: number = 1;
   maxQuantity: number = 5;
@@ -33,14 +32,19 @@ export class SausagerollPage  {
       name: 'sausage roll',
       price: 3.00,
       quantity: this.quantity,
-      imageUrl: 'assets/4.png', 
+      imageUrl: "assets/4.png",
     };
-
-    this.cartItems.push(selectedItem);
-
-    // Save the updated cart items 
+  
+    const existingItemIndex = this.cartItems.findIndex(item => item.name === selectedItem.name);
+  
+    if (existingItemIndex !== -1) {
+      this.cartItems[existingItemIndex].quantity += this.quantity;
+    } else {
+      this.cartItems.push(selectedItem);
+    }
+  
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
-
+  
     this.router.navigate(['/addtocart']);
   }
 
