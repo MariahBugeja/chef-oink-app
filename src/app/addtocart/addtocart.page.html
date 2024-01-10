@@ -19,35 +19,36 @@
         <ion-label>
           <h2>{{ item.name }}</h2>
           <p>Price: £{{ item.price }}</p>
-        </ion-label>
+        </ion-label>     <ion-buttons class="quantity-buttons-left">
+          <ion-button class="quantity2"fill="clear"  (click)="decreaseQuantity(item)">-</ion-button>
+          <p class="quantity">{{ item.quantity }}</p>
+          <ion-button class="quantity2" fill="clear" (click)="increaseQuantity(item)">+</ion-button>
+        </ion-buttons>
         <ion-buttons slot="end">
           <ion-button fill="clear" color="danger" (click)="deleteItem(item)">
             <ion-icon name="trash"></ion-icon>
           </ion-button>
         </ion-buttons>
       </ion-item>
-      <ion-buttons class="quantity-buttons-left">
-        <ion-button fill="clear" color="danger" (click)="decreaseQuantity(item)">-</ion-button>
-        <p class="quantity">{{ item.quantity }}</p>
-        <ion-button fill="clear" color="success" (click)="increaseQuantity(item)">+</ion-button>
-      </ion-buttons>
 <ion-item-options side="end">
   <ion-item-option color="danger" expandable>
   </ion-item-option>
 </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-
+<div class="divider-line">
   <ion-row>
     <ion-col>
-      <p>Total: £{{ totalAmount }}</p>
+      <p class="total1">total ammount:</p>
+      <p class="total"> £{{ totalAmount }}</p>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col>
-      <ion-button expand="block" color="primary" (click)="checkout()">Checkout</ion-button>
+      <ion-button class="checkout" expand="block" color="primary" (click)="checkout()">Checkout</ion-button>
     </ion-col>
   </ion-row>
+</div>
 </ion-content>
 

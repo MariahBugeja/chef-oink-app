@@ -11,3 +11,29 @@
   margin-bottom: 1%; 
   margin-left: 2%;
 }
+.no-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 67vh; 
+
+  .small-image {
+    max-width: 150px; 
+    max-height: 150px; 
+    margin-bottom: 29px; 
+    
+  }
+
+  .message {
+    text-align: center;
+    margin: 0;
+    margin-right: 10%;
+    margin-left: 10%;
+    font-family: 'raleway medium 500';
+    line-height: 1.5; 
+
+
+}  
+}
+
