@@ -10,6 +10,8 @@ export class Tab2Page {
     { name: 'Beef patty', description: 'Tasty beef patty', image: 'assets/8.png' },
     { name: 'Sausage roll', description: 'Delicious sausage roll', image: 'assets/4.png' },
     { name: 'Veggie patty', description: 'Healthy veggie patty', image: 'assets/5.png' },
+    { name: 'Spinach patty', description: 'Healthy Spinach patty', image: 'assets/6.png' },
+    { name: 'Meat Pie', description: 'Delicious Meat Pie', image: 'assets/7.png' },
   ];
 
   searchTerm: string = '';

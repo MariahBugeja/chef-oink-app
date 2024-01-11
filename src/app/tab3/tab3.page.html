@@ -1,22 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Savory Items</ion-title>
+    <ion-title>
+      Customize  Meal
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- Savory Items section -->
-  <div class="savory-items-section">
-    <ion-card>
-      <ion-img src="assets/savory_item_1.jpg"></ion-img>
-      <ion-card-header>
-        Savory Item 1
-      </ion-card-header>
-      <ion-card class="custom-card1">
-        <div class="image-wrapper">
-          <img alt="Image 1" src="assets/1.png" />
-        </div>
-        <p class="card-caption">Savory food</p>
-      </ion-card>
-  
-    </ion-card>
+<ion-content class="ion-padding">
+  <ion-card-subtitle class="ion-text-center">
+    Choose 4 savory items and 1 dessert
+  </ion-card-subtitle>
+
+  <ion-card *ngFor="let item of savoryItems" (click)="toggleItem(item)">
+    <img [src]="item.image" alt="{{ item.name }}">
+    <ion-card-header>
+      <ion-card-title>{{ item.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-checkbox [(ngModel)]="item.selected"></ion-checkbox>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngFor="let item of dessertItems" (click)="toggleItem(item)">
+    <img [src]="item.image" alt="{{ item.name }}">
+    <ion-card-header>
+      <ion-card-title>{{ item.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-checkbox [(ngModel)]="item.selected"></ion-checkbox>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button (click)="submitSelection()">Add to cart</ion-button>
+</ion-content>

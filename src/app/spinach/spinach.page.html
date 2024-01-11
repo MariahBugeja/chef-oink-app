@@ -1,0 +1,80 @@
+<ion-content>
+  <div class="image-container">
+    <div class="back-button" (click)="goBack()">
+      &lt;
+    </div>
+    <img src="assets/6.png" alt="Chicken Leg Image" class="top-image">
+    <div class="details-background">
+      <div class="details-container">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <p class="foodtitle">Spinach Patty</p>
+              <div class="star-rating">
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star-half"></ion-icon>
+                <span class="rating-value">4.5</span>
+              </div>
+            </ion-col>
+            <ion-col size="6" class="ion-text-right">
+              <p class="foodtitle">£4.00</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-segment [(ngModel)]="selectedSegment">
+                <ion-segment-button value="description">
+                  Details
+                </ion-segment-button>
+                <ion-segment-button value="nutrition">
+                  Nutrition
+                </ion-segment-button>
+              </ion-segment>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <div *ngIf="selectedSegment === 'description'">
+                <h2 class="Description">Description</h2>
+                <p class="Description2">Hidden veggies  patty's are a kids meal made healthier. Serve with more veggies and veggie fries to make this an even healthier kids meal</p>
+              </div>
+              <div *ngIf="selectedSegment === 'nutrition'">
+                <h2 class="Description">Ingredients</h2>
+                <p class="Description2">Spinach, onion, carrot, garlic clove, Worcestershire sauce, egg.</p>
+              <p class="Description3">Calories: 177kcal | Carbohydrates: 3g | Protein: 13g | Fat: 7g | Saturated Fat: 2g</p>
+              
+              </div>
+            </ion-col>
+          </ion-row>
+  
+          <ion-row>
+            <ion-col size="12">
+              <div class="reheating-instructions">
+                <ion-icon name="time-outline" class="reheat-icon"></ion-icon>
+                <span>5 mins in oven at 193 degrees</span>
+              </div>
+            </ion-col>
+          </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <div class="quantity-buttons-left">
+                  <button class="quantity-modifier" id="decrease-bottom" (click)="decreaseQuantity()">-</button>
+                  <p class="quantity">{{ quantity }}</p>
+                  <button class="quantity-modifier" id="increase-bottom" (click)="increaseQuantity()">+</button>
+                </div>
+              </ion-col>
+            <ion-col size="6" class="ion-text-right">
+              <button class="add-to-cart" (click)="addtoCart()">
+                Add to Cart 
+                <ion-icon name="cart-outline"></ion-icon> 
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>

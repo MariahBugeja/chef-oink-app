@@ -38,6 +38,18 @@ const routes: Routes = [
     path: 'sausageroll',
     loadChildren: () => import('./sausageroll/sausageroll.module').then( m => m.SausagerollPageModule)
   },
+  {
+    path: 'veggie',
+    loadChildren: () => import('./veggie/veggie.module').then( m => m.VeggiePageModule)
+  },
+  {
+    path: 'spinach',
+    loadChildren: () => import('./spinach/spinach.module').then( m => m.SpinachPageModule)
+  },
+  {
+    path: 'meatpie',
+    loadChildren: () => import('./meatpie/meatpie.module').then( m => m.MeatpiePageModule)
+  },
 
 ];
 @NgModule({

@@ -28,4 +28,5 @@ export class Tab1Page {
   onLocationChange() {
     localStorage.setItem('selectedLocation', this.selectedLocation);
   }
+  
 }
