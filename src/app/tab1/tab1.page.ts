@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-tab1',
@@ -15,6 +16,12 @@ export class Tab1Page {
     { image: 'assets/8.png', alt: 'Image 8', caption: 'Set Meal 5' },
     { image: 'assets/9.png', alt: 'Image 9', caption: 'Set Meal 6' }
   ];
+ 
+    constructor(private router: Router) {}
+  
+    onItemClick() {
+      this.router.navigate(['/tabs/tab3/']);
+    }
 
   selectedLocation: string = 'default'; 
 
@@ -28,5 +35,6 @@ export class Tab1Page {
   onLocationChange() {
     localStorage.setItem('selectedLocation', this.selectedLocation);
   }
+ 
   
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-tab2',
@@ -7,17 +8,17 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
   items: any[] = [
-    { name: 'Beef patty', description: 'Tasty beef patty', image: 'assets/8.png' },
-    { name: 'Sausage roll', description: 'Delicious sausage roll', image: 'assets/4.png' },
-    { name: 'Veggie patty', description: 'Healthy veggie patty', image: 'assets/5.png' },
-    { name: 'Spinach patty', description: 'Healthy Spinach patty', image: 'assets/6.png' },
-    { name: 'Meat Pie', description: 'Delicious Meat Pie', image: 'assets/7.png' },
+    { id:'cookie', name: 'Beef patty', description: 'Tasty beef patty', image: 'assets/8.png' },
+    { id:'sausageroll',name:'Sausage roll', description: 'Delicious sausage roll', image: 'assets/4.png' },
+    { id:'veggie',name:'Veggie patty', description: 'Healthy veggie patty', image: 'assets/5.png' },
+    { id:'spinach', name:'Spinach patty', description: 'Healthy Spinach patty', image: 'assets/6.png' },
+    { id:'meatpie',name:'Meat Pie', description: 'Delicious Meat Pie', image: 'assets/7.png' },
   ];
 
   searchTerm: string = '';
   searchResults: any[] = [];
 
-  constructor() {}
+  constructor(private router: Router) {} 
 
   onSearch(event: any) {
     this.searchTerm = event.target.value.toLowerCase().trim();
@@ -30,4 +31,9 @@ export class Tab2Page {
       this.searchResults = [];
     }
   }
+
+  onItemClick(item: any) {
+    this.router.navigate(['/', item.id]);
+  }
 }
+

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.lobster-font {
+  font-family: 'Lobster', cursive;
+  font-size: 70px; 
+  margin-bottom: 20px; 
+}
+.header-font {
+  font-family: 'raleway';
+  font-size: 20px; 
+  margin-bottom: 1%; 
+  margin-left: 2%;
+}
+.card-container1 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  padding-top: 5%;
+}
+
+.custom-card1{
+  flex: 1;
+  max-width: 30%;
+  margin: 0 5px;
+}
+
+.image-wrapper {
+  height: 120px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+.card-caption {
+  text-align: center;
+  margin: 3px 0;
+  padding-bottom: 5%;
+  font-family: raleway Medium 500;
+
+}

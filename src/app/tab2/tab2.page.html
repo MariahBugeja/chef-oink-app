@@ -3,13 +3,13 @@
     <ion-title class="header-font">Chef Oink</ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-searchbar (ionChange)="onSearch($event)"></ion-searchbar>
+    <ion-searchbar (ionInput)="onSearch($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list *ngIf="searchResults.length > 0">
-    <ion-item *ngFor="let item of searchResults">
+    <ion-item *ngFor="let item of searchResults" (click)="onItemClick(item)">
       <ion-avatar slot="start">
         <img [src]="item.image" alt="Item Image">
       </ion-avatar>
@@ -37,7 +37,7 @@
   </ion-list>
 
   <ion-list *ngIf="searchTerm && searchResults.length === 0">
-    <ion-item *ngFor="let item of items">
+    <ion-item *ngFor="let item of items" (click)="onItemClick(item)">
       <ion-avatar slot="start">
         <img [src]="item.image" alt="Item Image">
       </ion-avatar>

@@ -50,6 +50,10 @@ const routes: Routes = [
     path: 'meatpie',
     loadChildren: () => import('./meatpie/meatpie.module').then( m => m.MeatpiePageModule)
   },
+  {
+    path: 'setmeal',
+    loadChildren: () => import('./setmeal/setmeal.module').then( m => m.SetmealPageModule)
+  },
 
 ];
 @NgModule({

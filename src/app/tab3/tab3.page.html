@@ -1,35 +1,47 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Customize  Meal
+      Customize Meal
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <ion-card-subtitle class="ion-text-center">
-    Choose 4 savory items and 1 dessert
+    Choose 4 savory items
   </ion-card-subtitle>
 
-  <ion-card *ngFor="let item of savoryItems" (click)="toggleItem(item)">
-    <img [src]="item.image" alt="{{ item.name }}">
-    <ion-card-header>
-      <ion-card-title>{{ item.name }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-checkbox [(ngModel)]="item.selected"></ion-checkbox>
-    </ion-card-content>
-  </ion-card>
+  <ion-row>
+    <ion-col *ngFor="let item of savoryItems" size="6">
+      <ion-card class="custom-card" (click)="toggleItem(item)">
+        <img [src]="item.image" alt="{{ item.name }}">
+        <ion-card-header>
+          <ion-card-title>{{ item.name }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="ion-text-center">
+          <ion-checkbox [(ngModel)]="item.selected"></ion-checkbox>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
 
-  <ion-card *ngFor="let item of dessertItems" (click)="toggleItem(item)">
-    <img [src]="item.image" alt="{{ item.name }}">
-    <ion-card-header>
-      <ion-card-title>{{ item.name }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-checkbox [(ngModel)]="item.selected"></ion-checkbox>
-    </ion-card-content>
-  </ion-card>
+  <ion-card-subtitle class="ion-text-center">
+    Choose 1 dessert
+  </ion-card-subtitle>
 
-  <ion-button (click)="submitSelection()">Add to cart</ion-button>
+  <ion-row>
+    <ion-col *ngFor="let item of dessertItems" size="6">
+      <ion-card class="custom-card" (click)="toggleItem(item)">
+        <img [src]="item.image" alt="{{ item.name }}">
+        <ion-card-header>
+          <ion-card-title>{{ item.name }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="ion-text-center">
+          <ion-checkbox [(ngModel)]="item.selected"></ion-checkbox>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-button >Add to cart</ion-button>
 </ion-content>
