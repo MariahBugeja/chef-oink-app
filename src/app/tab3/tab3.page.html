@@ -13,7 +13,7 @@
 
   <ion-row>
     <ion-col *ngFor="let item of savoryItems" size="6">
-      <ion-card class="custom-card" (click)="toggleItem(item)">
+      <ion-card class="custom-card" [class.selected]="item.selected" (click)="toggleItem(item)">
         <img [src]="item.image" alt="{{ item.name }}">
         <ion-card-header>
           <ion-card-title>{{ item.name }}</ion-card-title>
@@ -31,7 +31,7 @@
 
   <ion-row>
     <ion-col *ngFor="let item of dessertItems" size="6">
-      <ion-card class="custom-card" (click)="toggleItem(item)">
+      <ion-card class="custom-card" [class.selected]="item.selected" (click)="toggleItem(item)">
         <img [src]="item.image" alt="{{ item.name }}">
         <ion-card-header>
           <ion-card-title>{{ item.name }}</ion-card-title>
@@ -43,5 +43,8 @@
     </ion-col>
   </ion-row>
 
-  <ion-button >Add to cart</ion-button>
-</ion-content>
+  <ion-card-subtitle class="ion-text-center">
+    Customize Meal Cost: £8.50 
+  </ion-card-subtitle>
+  
+  <ion-button (click)="submitSelection()">Add to cart</ion-button>

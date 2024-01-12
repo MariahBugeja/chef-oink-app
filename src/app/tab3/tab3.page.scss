@@ -1,20 +1,38 @@
 .custom-card {
-    height: 70%;
-    margin-bottom: 8px; 
+  height: 70%;
+  margin-bottom: 8px;
+  border: 2px solid transparent; 
+
+  img {
+    max-height: 100%;
+    width: auto;
   }
-  
+
   ion-card-title {
     font-size: 16px;
-    margin-bottom: -20px; 
+    margin-bottom: 0;
   }
-  
+
   ion-card-content {
     display: flex;
     align-items: center;
     justify-content: center;
+   
   }
-  
+
   ion-checkbox {
     margin: 0;
+    margin-left: 8px;
   }
-  
+
+  &.selected {
+    border-color: #ff7700; 
+  }
+}
+
+ion-row {
+  margin-top: -13px; 
+}
+
+
+

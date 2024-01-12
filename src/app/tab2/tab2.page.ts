@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+
   items: any[] = [
     { id:'cookie', name: 'Beef patty', description: 'Tasty beef patty', image: 'assets/8.png' },
     { id:'sausageroll',name:'Sausage roll', description: 'Delicious sausage roll', image: 'assets/4.png' },
@@ -17,6 +18,7 @@ export class Tab2Page {
 
   searchTerm: string = '';
   searchResults: any[] = [];
+
 
   constructor(private router: Router) {} 
 
@@ -35,5 +37,6 @@ export class Tab2Page {
   onItemClick(item: any) {
     this.router.navigate(['/', item.id]);
   }
+  
 }
 

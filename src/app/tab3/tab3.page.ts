@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  cartItems: any[] = [];
+  totalAmount: number = 0;
+
   savoryItems = [
     { name: 'Savory Item 1', image: 'assets/4.png', selected: false, type: 'savory' },
     { name: 'Savory Item 2', image: 'assets/5.png', selected: false, type: 'savory' },
@@ -25,6 +29,8 @@ export class Tab3Page {
 
   selectedSavoryItems: any[] = [];
   selectedDessertItem: any = null;
+
+  constructor(private router: Router) {}
 
   toggleItem(item: any) {
     if (item.type === 'savory') {
@@ -58,7 +64,7 @@ export class Tab3Page {
 
   private toggleDessertItem(item: any) {
     if (this.selectedDessertItem === item) {
-      // if the dessert item is already selected, unselect it
+      //  unselect it the dessert
       this.selectedDessertItem.selected = false;
       this.selectedDessertItem = null;
       return;
@@ -75,5 +81,53 @@ export class Tab3Page {
   }
 
   submitSelection() {
+    const selectedSavoryItems = this.savoryItems.filter(item => item.selected);
+    const selectedDessertItems = this.dessertItems.filter(item => item.selected);
+  
+    if (selectedSavoryItems.length === 4 && selectedDessertItems.length === 1) {
+      const selectedItemGroup = {
+        name: 'Customized Meal',
+        items: [...selectedSavoryItems, selectedDessertItems[0]],
+        price: 8.50,
+        quantity: 1,
+        type: 'customizedMeal',
+        savoryItems: selectedSavoryItems.map(item => item.name),
+        dessertItem: selectedDessertItems[0].name
+      };
+  
+      //  selected item group to the cart
+      this.cartItems.push(selectedItemGroup);
+  
+      // Clear the selections
+      this.clearSelections();
+  
+     
+      this.updateLocalStorage();
+      this.calculateTotal();
+  
+      
+      this.router.navigate(['/addtocart']);
+    } else {
+      console.error('Please select exactly 4 savory items and 1 dessert.');
+    }
+  }
+  
+
+  // Add this method to clear the selections after adding to cart
+  clearSelections() {
+    this.savoryItems.forEach(item => item.selected = false);
+    this.dessertItems.forEach(item => item.selected = false);
+  }
+
+  // Add this method to update local storage after modifying the cart
+  updateLocalStorage() {
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+  }
+
+  // Add this method to recalculate the total after modifying the cart
+  calculateTotal() {
+    this.totalAmount = this.cartItems.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
   }
 }

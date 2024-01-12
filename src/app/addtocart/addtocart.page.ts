@@ -48,12 +48,14 @@ export class AddtocartPage implements OnInit {
       this.calculateTotal();
     }
   }
-  
   increaseQuantity(item: any) {
-    
-    item.quantity++;
-    this.updateLocalStorage();
-    this.calculateTotal();
+    if (item.quantity < 5) {
+      item.quantity++;
+      this.updateLocalStorage();
+      this.calculateTotal();
+    } else {
+      console.log('Quantity limit reached (max: 5)');
+    }
   }
   
   updateLocalStorage() {
