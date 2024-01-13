@@ -54,6 +54,10 @@ const routes: Routes = [
     path: 'setmeal',
     loadChildren: () => import('./setmeal/setmeal.module').then( m => m.SetmealPageModule)
   },
+  {
+    path: 'payment',
+    loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
+  },
 
 ];
 @NgModule({

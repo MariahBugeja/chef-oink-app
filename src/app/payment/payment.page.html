@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Payment
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input [(ngModel)]="paymentDetails.name" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Surname</ion-label>
+    <ion-input [(ngModel)]="paymentDetails.surname" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Address</ion-label>
+    <ion-input [(ngModel)]="paymentDetails.address" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Card Number</ion-label>
+    <ion-input [(ngModel)]="paymentDetails.cardNumber" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Expiration Date</ion-label>
+    <ion-input [(ngModel)]="paymentDetails.expirationDate" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Security Code</ion-label>
+    <ion-input [(ngModel)]="paymentDetails.securityCode" required></ion-input>
+  </ion-item>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ purchasedProduct.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Price: £{{ purchasedProduct.price }}</p>
+      <p>Quantity: {{ purchasedProduct.quantity }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="full" color="primary" (click)="pay()">Pay Now</ion-button>
+</ion-content>
