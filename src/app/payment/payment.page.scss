@@ -1,12 +1,17 @@
 ion-input {
+  margin-bottom: 16px;
+}
+
+ion-card {
+  margin-top: 16px;
+}
+
+ion-button {
+  margin-top: 16px;
+}
+
+ion-row {
+  ion-col {
     margin-bottom: 16px;
   }
-  
-  ion-card {
-    margin-top: 16px;
-  }
-  
-  ion-button {
-    margin-top: 16px;
-  }
-  
+}

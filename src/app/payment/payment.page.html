@@ -5,16 +5,23 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content class="ion-padding">
+  
+
   <ion-item>
     <ion-label position="floating">Name</ion-label>
-    <ion-input [(ngModel)]="paymentDetails.name" required></ion-input>
+    <ion-input [(ngModel)]="paymentDetails.name" 
+               required 
+               pattern="[a-zA-Z ]*"
+               (input)="validateAlphabeticInput($event, 'name')"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Surname</ion-label>
-    <ion-input [(ngModel)]="paymentDetails.surname" required></ion-input>
+    <ion-input [(ngModel)]="paymentDetails.surname" 
+               required 
+               pattern="[a-zA-Z ]*"
+               (input)="validateAlphabeticInput($event, 'surname')"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -23,18 +30,59 @@
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Card Number</ion-label>
-    <ion-input [(ngModel)]="paymentDetails.cardNumber" required></ion-input>
+    <ion-label position="floating">Town</ion-label>
+    <ion-input [(ngModel)]="paymentDetails.town" 
+               required 
+               pattern="[a-zA-Z ]*"
+               (input)="validateAlphabeticInput($event, 'town')"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Expiration Date</ion-label>
-    <ion-input [(ngModel)]="paymentDetails.expirationDate" required></ion-input>
+    <ion-label position="floating">Postal Code</ion-label>
+    <ion-input [(ngModel)]="paymentDetails.postalCode" required></ion-input>
   </ion-item>
+  <ion-item>
+    <ion-label position="floating">Cardholder Name</ion-label>
+    <ion-input [(ngModel)]="paymentDetails.cardHolderName" 
+               required 
+               pattern="[a-zA-Z ]*"
+               (input)="validateAlphabeticInput($event, 'cardHolderName')"></ion-input>
+  </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">Card Number</ion-label>
+        <ion-input [(ngModel)]="paymentDetails.cardNumber" 
+                   inputmode="numeric" 
+                   pattern="[0-9]*" 
+                   maxlength="19" 
+                   placeholder="XXXX XXXX XXXX XXXX" 
+                   (input)="formatCardNumber($event)"
+                   required></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">Expiration Date</ion-label>
+        <ion-input [(ngModel)]="paymentDetails.expirationDate" 
+                   inputmode="numeric" 
+                   pattern="^(0[1-9]|1[0-2])\/\d{2}$" 
+                   maxlength="5" 
+                   placeholder="MM/YY" 
+                   (input)="formatExpirationDate($event)"
+                   required></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
 
   <ion-item>
     <ion-label position="floating">Security Code</ion-label>
-    <ion-input [(ngModel)]="paymentDetails.securityCode" required></ion-input>
+    <ion-input [(ngModel)]="paymentDetails.securityCode" 
+               inputmode="numeric" 
+               pattern="[0-9]*" 
+               maxlength="3" 
+               (input)="formatSecurityCode($event)"
+               required></ion-input>
   </ion-item>
 
   <ion-card>
