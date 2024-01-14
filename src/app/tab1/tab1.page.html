@@ -8,8 +8,14 @@
           <option value="malta">Malta</option>
           <option value="another-location">Another Location</option>
         </select>
+        <ion-buttons slot="end" class="cart-icon">
+          <ion-button (click)="goToCartPage()">
+            <ion-icon name="cart-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
       </div>
     </div>
+    
   <div>
   <div>
   <ion-card class="Food">
@@ -136,6 +142,7 @@
         <ion-img src="/assets/h.png"></ion-img>
       </div>
     </div>
+   
   </ion-card-content>
 </ion-card>
 

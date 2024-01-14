@@ -55,7 +55,6 @@ export class SignIn2Page {
       return;
     }
 
-    // If there are no errors, navigate to the next page
     this.router.navigate(['/login']);
   }
 

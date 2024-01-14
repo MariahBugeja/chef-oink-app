@@ -64,8 +64,12 @@ export class AddtocartPage implements OnInit {
   }
   
   checkout() {
-
-    this.router.navigate(['/checkout']); 
+    this.router.navigate(['/payment'], {
+      state: {
+        cart: this.cartItems,
+        totalAmount: this.totalAmount,
+      },
+    });
   }
 
   goBack() {

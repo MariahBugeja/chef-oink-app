@@ -1,10 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Payment
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>      Payment
     </ion-title>
   </ion-toolbar>
 </ion-header>
+
+
 <ion-content class="ion-padding">
   
 
@@ -85,15 +91,15 @@
                required></ion-input>
   </ion-item>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>{{ purchasedProduct.name }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>Price: £{{ purchasedProduct.price }}</p>
-      <p>Quantity: {{ purchasedProduct.quantity }}</p>
-    </ion-card-content>
-  </ion-card>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Total Amount</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p>£{{ calculateTotal() }}</p>
+  </ion-card-content>
+</ion-card>
 
-  <ion-button expand="full" color="primary" (click)="pay()">Pay Now</ion-button>
+
+<ion-button expand="full" color="primary" (click)="navigateToConfirmationPage()">Pay Now</ion-button>
 </ion-content>

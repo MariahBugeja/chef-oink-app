@@ -18,7 +18,9 @@ export class Tab1Page {
   ];
  
     constructor(private router: Router) {}
-  
+    goToCartPage() {
+      this.router.navigate(['/addtocart']);
+    }
     onItemClick() {
       this.router.navigate(['/tabs/tab3/']);
     }

@@ -1,44 +1,61 @@
-import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/userservices/userservices.page';
+import { SignInPage } from './sign-in.page';
 
-@Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.page.html',
-  styleUrls: ['./sign-in.page.scss'],
-})
-export class SignInPage {
-  name: string = '';
-  surname: string = '';
-  username: string = '';
-  error: string = '';
+describe('SignInPage', () => {
+  let component: SignInPage;
+  let fixture: ComponentFixture<SignInPage>;
 
-  constructor(private router: Router) {}
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [SignInPage],
+      providers: [UserService, { provide: Router, useValue: { navigate: jasmine.createSpy('navigate') } }]
+    });
 
-  signIn() {
-    if (!this.name.trim() || !this.surname.trim() || !this.username.trim()) {
-      this.error = 'Please fill in all fields.';
-      return;
-    }
+    fixture = TestBed.createComponent(SignInPage);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-    if (this.username.length < 8 || !this.containsTwoNumbers(this.username)) {
-      this.error = 'Username must be at least 8 characters long and contain at least 2 numbers.';
-      return;
-    }
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
-    
-    this.error = '';
+  it('should navigate to sign-in2 on successful sign-in', () => {
+    spyOn(component.userService, 'setUserData');
 
-    // Navigate to the next page after validation
-    this.router.navigate(['/sign-in2']);
-  }
+    component.name = 'Mariah Bug';
+    component.phoneNumber = '12345678';
+    component.username = 'Mariah1234';
 
-  containsTwoNumbers(str: string): boolean {
-    let count = 0;
-    for (let i = 0; i < str.length; i++) {
-      if (!isNaN(Number(str[i]))) {
-        count++;
-      }
-    }
-    return count >= 2;
-  }
-}
+    component.signIn();
+
+    expect(component.userService.setUserData).toHaveBeenCalled();
+    expect(component.router.navigate).toHaveBeenCalledWith(['/sign-in2']);
+  });
+
+  it('should show error message for missing fields', () => {
+    spyOn(component.userService, 'setUserData');
+
+    component.signIn();
+
+    expect(component.error).toBeTruthy();
+    expect(component.userService.setUserData).not.toHaveBeenCalled();
+    expect(component.router.navigate).not.toHaveBeenCalled();
+  });
+
+  it('should show error message for invalid username', () => {
+    spyOn(component.userService, 'setUserData');
+
+    component.name = 'Mariah Bug';
+    component.phoneNumber = '12345678';
+    component.username = 'Mariah'; 
+
+    component.signIn();
+
+    expect(component.error).toBeTruthy();
+    expect(component.userService.setUserData).not.toHaveBeenCalled();
+    expect(component.router.navigate).not.toHaveBeenCalled();
+  });
+});

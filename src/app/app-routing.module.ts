@@ -58,6 +58,22 @@ const routes: Routes = [
     path: 'payment',
     loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
   },
+  {
+    path: 'paymentsuccesful',
+    loadChildren: () => import('./paymentsuccesful/paymentsuccesful.module').then( m => m.PaymentsuccesfulPageModule)
+  },
+  {
+    path: 'hisoty',
+    loadChildren: () => import('./hisoty/hisoty.module').then( m => m.HisotyPageModule)
+  },
+  {
+    path: 'shared-data-service',
+    loadChildren: () => import('./shared-data-service/shared-data-service.module').then( m => m.SharedDataServicePageModule)
+  },
+  {
+    path: 'userservices',
+    loadChildren: () => import('./userservices/userservices.module').then( m => m.UserservicesPageModule)
+  },
 
 ];
 @NgModule({
