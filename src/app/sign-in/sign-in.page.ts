@@ -1,61 +1,54 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/userservices/userservices.page';
-import { SignInPage } from './sign-in.page';
+import { UserService } from 'src/app/userservices/userservices.page'; 
 
-describe('SignInPage', () => {
-  let component: SignInPage;
-  let fixture: ComponentFixture<SignInPage>;
+@Component({
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.page.html',
+  styleUrls: ['./sign-in.page.scss'],
+})
+export class SignInPage {
+  name: string = '';
+  username: string = '';
+  error: string = '';
+  phoneNumber: string = '';
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [SignInPage],
-      providers: [UserService, { provide: Router, useValue: { navigate: jasmine.createSpy('navigate') } }]
-    });
+  constructor(private router: Router, private userService: UserService) {}
 
-    fixture = TestBed.createComponent(SignInPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  signIn() {
+    if (!this.name.trim() || !this.phoneNumber.trim() || !this.username.trim()) {
+      this.error = 'Please fill in all fields.';
+      return;
+    }
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    if (this.username.length < 8 || !this.containsTwoNumbers(this.username)) {
+      this.error = 'Username must be at least 8 characters long and contain at least 2 numbers.';
+      return;
+    }
 
-  it('should navigate to sign-in2 on successful sign-in', () => {
-    spyOn(component.userService, 'setUserData');
+    // Ensure that phoneNumber contains only digits and has a minimum length of 8
+    const phoneNumberRegex = /^\d{8,}$/;
+    if (!phoneNumberRegex.test(this.phoneNumber)) {
+      this.error = 'Phone number must contain only digits and have a minimum length of 8.';
+      return;
+    }
 
-    component.name = 'Mariah Bug';
-    component.phoneNumber = '12345678';
-    component.username = 'Mariah1234';
+    this.error = '';
 
-    component.signIn();
+    // Save data
+    this.userService.setUserData(this.name, this.phoneNumber, this.username);
 
-    expect(component.userService.setUserData).toHaveBeenCalled();
-    expect(component.router.navigate).toHaveBeenCalledWith(['/sign-in2']);
-  });
+    // Navigate to the next page after validation
+    this.router.navigate(['/sign-in2']);
+  }
 
-  it('should show error message for missing fields', () => {
-    spyOn(component.userService, 'setUserData');
-
-    component.signIn();
-
-    expect(component.error).toBeTruthy();
-    expect(component.userService.setUserData).not.toHaveBeenCalled();
-    expect(component.router.navigate).not.toHaveBeenCalled();
-  });
-
-  it('should show error message for invalid username', () => {
-    spyOn(component.userService, 'setUserData');
-
-    component.name = 'Mariah Bug';
-    component.phoneNumber = '12345678';
-    component.username = 'Mariah'; 
-
-    component.signIn();
-
-    expect(component.error).toBeTruthy();
-    expect(component.userService.setUserData).not.toHaveBeenCalled();
-    expect(component.router.navigate).not.toHaveBeenCalled();
-  });
-});
+  containsTwoNumbers(str: string): boolean {
+    let count = 0;
+    for (let i = 0; i < str.length; i++) {
+      if (!isNaN(Number(str[i]))) {
+        count++;
+      }
+    }
+    return count >= 2;
+  }
+}

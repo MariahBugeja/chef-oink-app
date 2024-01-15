@@ -22,6 +22,7 @@ export class UserService {
   }
 
   getUserData() {
-    return { ...this.userData };
-  }
+    return this.userData; 
+    }
+  
 }
