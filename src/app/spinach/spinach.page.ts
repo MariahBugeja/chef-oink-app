@@ -29,25 +29,31 @@ export class SpinachPage  {
   }
 
   addtoCart() {
-    const selectedItem = {
+    const selectedItem: any = {
       name: 'Spinach Patty',
       price: 4.00,
       quantity: this.quantity,
       imageUrl: "assets/6.png",
     };
   
-    const existingItemIndex = this.cartItems.findIndex(item => item.name === selectedItem.name);
+    // Load existing cart items
+    const cartItemsString = localStorage.getItem('cartItems');
+    let cartItems: any[] = cartItemsString ? JSON.parse(cartItemsString) : [];
+  
+    // Check if the selected item is already in the cart
+    const existingItemIndex = cartItems.findIndex((item: any) => item.name === selectedItem.name);
   
     if (existingItemIndex !== -1) {
-      this.cartItems[existingItemIndex].quantity += this.quantity;
+      cartItems[existingItemIndex].quantity += this.quantity;
     } else {
-      this.cartItems.push(selectedItem);
+      cartItems.push(selectedItem);
     }
   
-    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
   
     this.router.navigate(['/addtocart']);
   }
+  
 
   increaseQuantity() {
     if (this.quantity < this.maxQuantity) {

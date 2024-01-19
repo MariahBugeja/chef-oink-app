@@ -42,7 +42,7 @@
     font-family: raleway medium 500;
     font-size: 22px;
     margin-top: -3px;
-
+  
   }
   .Description2{
     margin-top: 1px;
@@ -57,8 +57,8 @@
     font-size: 17px;
     margin-top: -11px;
   }
-
-.add-to-cart {
+  
+  .add-to-cart {
   background-color: #da7613;
   color: white;
   border: none;
@@ -67,23 +67,23 @@
   cursor: pointer;
   font-size: 16px;
   font-family: raleway medium 500;
-}
-
-.quantity-buttons-left {
+  }
+  
+  .quantity-buttons-left {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-}
-
-.quantity-buttons-left .quantity-modifier {
+  }
+  
+  .quantity-buttons-left .quantity-modifier {
   margin-right: 5px;
-}
-
-.quantity-buttons-left .quantity {
+  }
+  
+  .quantity-buttons-left .quantity {
   margin: 0 10px;
-}
-
-.quantity-modifier {
+  }
+  
+  .quantity-modifier {
   background-color: #da7613;
   color: white;
   border: none;
@@ -92,44 +92,44 @@
   cursor: pointer;
   font-size: 16px;
   margin-right: 5px;
-}
-
-.quantity {
+  }
+  
+  .quantity {
   margin: 0 10px;
-}
-.star-rating {
+  }
+  .star-rating {
   display: flex;
   align-items: center;
   margin-top: -20px;
-
-}
-
-.star-rating ion-icon {
+  
+  }
+  
+  .star-rating ion-icon {
   color: #da7613; 
   font-size: 15px; 
-}
-
-.rating-value {
+  }
+  
+  .rating-value {
   margin-left: 5px;
   font-size: 18px;
   margin-top: 0px;
-font-family: raleway medium 500;
-}
-.reheating-instructions {
+  font-family: raleway medium 500;
+  }
+  .reheating-instructions {
   display: flex;
   align-items: center;
   font-family: 'raleway medium 500';
   font-size: 14px;
   margin-bottom: 5px;
   text-align: left;
-}
-
-.reheat-icon {
+  }
+  
+  .reheat-icon {
   margin-right: 8px;
   font-size: 20px;
-}
-
-.back-button {
+  }
+  
+  .back-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,4 +141,4 @@ font-family: raleway medium 500;
   font-size: 24px;
   border: none;
   cursor: pointer;
-}
+  }

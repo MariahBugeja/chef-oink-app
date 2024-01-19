@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-muffinb',
-  templateUrl: './muffinb.page.html',
-  styleUrls: ['./muffinb.page.scss'],
+  selector: 'app-oat',
+  templateUrl: './oat.page.html',
+  styleUrls: ['./oat.page.scss'],
 })
-export class MuffinbPage  {
+export class OatPage {
 
   selectedSegment: string = 'description';
   quantity: number = 1;
@@ -28,10 +29,10 @@ export class MuffinbPage  {
 
   addtoCart() {
     const selectedItem: any = {
-      name: 'Banana Muffin',
+      name: 'Oatmeal Cookie',
       price: 3.50,
       quantity: this.quantity,
-      imageUrl: "assets/15.png",
+      imageUrl: "assets/16.png",
     };
   
     // Load existing cart items

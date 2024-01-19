@@ -14,6 +14,16 @@ export class Tab2Page {
     { id:'veggie',name:'Veggie patty', description: 'Healthy veggie patty', image: 'assets/5.png' },
     { id:'spinach', name:'Spinach patty', description: 'Healthy Spinach patty', image: 'assets/6.png' },
     { id:'meatpie',name:'Meat Pie', description: 'Delicious Meat Pie', image: 'assets/7.png' },
+    { id:'vegan',name:'Vegan Meal', description: 'Delicious Meal', image: 'assets/set2.png' },
+    { id:'picky',name:'Picky Eater Meal', description: 'Delicious Meal', image: 'assets/set1.png' },
+    { id:'oat',name:'Oatmeal Cookie', description: 'Delicious Cookie', image: 'assets/16.png' },
+    { id:'muffinb',name:'Banana Muffin', description: 'Delicious Muffin', image: 'assets/15.png' },
+    { id:'choc',name:'Choc Muffin', description: 'Delicious Muffin', image: 'assets/13.png' },
+    { id:'brownie',name:'Choc Brownie', description: 'Delicious Brownie', image: 'assets/14.png' },
+    { id:'beet',name:'Beetroot Patty', description: 'Delicious Patty', image: 'assets/9.png' },
+
+
+
   ];
 
   searchTerm: string = '';

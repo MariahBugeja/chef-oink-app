@@ -26,27 +26,32 @@ export class SausagerollPage  {
   goBack() {
     this.router.navigate(['/tabs/tab1']);
   }
-
   addtoCart() {
-    const selectedItem = {
-      name: 'sausage roll',
+    const selectedItem: any = {
+      name: 'Sausage Roll',
       price: 3.00,
       quantity: this.quantity,
       imageUrl: "assets/4.png",
     };
   
-    const existingItemIndex = this.cartItems.findIndex(item => item.name === selectedItem.name);
+    // Load existing cart items
+    const cartItemsString = localStorage.getItem('cartItems');
+    let cartItems: any[] = cartItemsString ? JSON.parse(cartItemsString) : [];
+  
+    // Check if the selected item is already in the cart
+    const existingItemIndex = cartItems.findIndex((item: any) => item.name === selectedItem.name);
   
     if (existingItemIndex !== -1) {
-      this.cartItems[existingItemIndex].quantity += this.quantity;
+      cartItems[existingItemIndex].quantity += this.quantity;
     } else {
-      this.cartItems.push(selectedItem);
+      cartItems.push(selectedItem);
     }
   
-    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
   
     this.router.navigate(['/addtocart']);
   }
+  
 
   increaseQuantity() {
     if (this.quantity < this.maxQuantity) {

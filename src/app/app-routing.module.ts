@@ -98,6 +98,18 @@ const routes: Routes = [
     path: 'muffinb',
     loadChildren: () => import('./muffinb/muffinb.module').then( m => m.MuffinbPageModule)
   },
+  {
+    path: 'choc',
+    loadChildren: () => import('./choc/choc.module').then( m => m.ChocPageModule)
+  },
+  {
+    path: 'oat',
+    loadChildren: () => import('./oat/oat.module').then( m => m.OatPageModule)
+  },
+  {
+    path: 'beet',
+    loadChildren: () => import('./beet/beet.module').then( m => m.BeetPageModule)
+  },
 
 ];
 @NgModule({
