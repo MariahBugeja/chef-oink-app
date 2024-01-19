@@ -110,6 +110,14 @@ const routes: Routes = [
     path: 'beet',
     loadChildren: () => import('./beet/beet.module').then( m => m.BeetPageModule)
   },
+  {
+    path: 'fish',
+    loadChildren: () => import('./fish/fish.module').then( m => m.FishPageModule)
+  },
+  {
+    path: 'pnut',
+    loadChildren: () => import('./pnut/pnut.module').then( m => m.PnutPageModule)
+  },
 
 ];
 @NgModule({

@@ -21,6 +21,8 @@ export class Tab2Page {
     { id:'choc',name:'Choc Muffin', description: 'Delicious Muffin', image: 'assets/13.png' },
     { id:'brownie',name:'Choc Brownie', description: 'Delicious Brownie', image: 'assets/14.png' },
     { id:'beet',name:'Beetroot Patty', description: 'Delicious Patty', image: 'assets/9.png' },
+    { id:'fish',name:'Fish Finger', description: 'Delicious Fish', image: 'assets/10.png' },
+    { id:'pnut',name:'Peanut Swirl', description: 'Delicious Swirl', image: 'assets/11.png' },
 
 
 
