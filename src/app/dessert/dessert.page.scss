@@ -1,14 +1,4 @@
 
-.card-container {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-
-  ion-card {
-    max-width: 200px;
-    font-family: raleway medium 500;
-    font-size: 5px;
-  }
   ion-title{
     font-family: raleway medium 500;
 
@@ -17,7 +7,7 @@
     font-family: raleway medium 500;
 font-size: 19px;
   }
-}
+
 .custom-link {
   text-decoration: none; 
   color: black; 

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-meatpie',
-  templateUrl: './meatpie.page.html',
-  styleUrls: ['./meatpie.page.scss'],
+  selector: 'app-vegan',
+  templateUrl: './vegan.page.html',
+  styleUrls: ['./vegan.page.scss'],
 })
-export class MeatpiePage  {
+
+export class VeganPage  {
 
   
   selectedSegment: string = 'description';
@@ -30,10 +30,10 @@ export class MeatpiePage  {
 
   addtoCart() {
     const selectedItem: any = {
-      name: 'Meat pie',
+      name: 'Vegan',
       price: 4.50,
       quantity: this.quantity,
-      imageUrl: "assets/7.png",
+      imageUrl: "assets/set1.png",
     };
   
     // Load existing cart items

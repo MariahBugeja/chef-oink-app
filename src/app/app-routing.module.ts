@@ -74,6 +74,30 @@ const routes: Routes = [
     path: 'userservices',
     loadChildren: () => import('./userservices/userservices.module').then( m => m.UserservicesPageModule)
   },
+  {
+    path: 'vegan',
+    loadChildren: () => import('./vegan/vegan.module').then( m => m.VeganPageModule)
+  },
+  {
+    path: 'dessert',
+    loadChildren: () => import('./dessert/dessert.module').then( m => m.DessertPageModule)
+  },
+  {
+    path: 'picky',
+    loadChildren: () => import('./picky/picky.module').then( m => m.PickyPageModule)
+  },
+  {
+    path: 'savoury',
+    loadChildren: () => import('./savoury/savoury.module').then( m => m.SavouryPageModule)
+  },
+  {
+    path: 'brownie',
+    loadChildren: () => import('./brownie/brownie.module').then( m => m.BrowniePageModule)
+  },
+  {
+    path: 'muffinb',
+    loadChildren: () => import('./muffinb/muffinb.module').then( m => m.MuffinbPageModule)
+  },
 
 ];
 @NgModule({

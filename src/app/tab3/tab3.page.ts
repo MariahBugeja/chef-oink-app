@@ -81,50 +81,57 @@ export class Tab3Page {
   }
 
   submitSelection() {
-    const selectedSavoryItems = this.savoryItems.filter(item => item.selected);
-    const selectedDessertItems = this.dessertItems.filter(item => item.selected);
-  
-    if (selectedSavoryItems.length === 4 && selectedDessertItems.length === 1) {
-      const selectedItemGroup = {
-        name: 'Customized Meal',
-        items: [...selectedSavoryItems, selectedDessertItems[0]],
-        price: 8.50,
-        quantity: 1,
-        type: 'customizedMeal',
-        savoryItems: selectedSavoryItems.map(item => item.name),
-        dessertItem: selectedDessertItems[0].name
-      };
-  
-      //  selected item group to the cart
-      this.cartItems.push(selectedItemGroup);
-  
-      // Clear the selections
-      this.clearSelections();
-  
-     
-      this.updateLocalStorage();
+  const selectedSavoryItems = this.savoryItems.filter(item => item.selected);
+  const selectedDessertItems = this.dessertItems.filter(item => item.selected);
+
+  if (selectedSavoryItems.length === 4 && selectedDessertItems.length === 1) {
+    const selectedItemGroup = {
+      name: 'Customized Meal',
+      items: [...selectedSavoryItems, selectedDessertItems[0]],
+      price: 8.50,
+      quantity: 1,
+      type: 'customizedMeal',
+      savoryItems: selectedSavoryItems.map(item => item.name),
+      dessertItem: selectedDessertItems[0].name
+    };
+
+    // Load existing cart items
+    const cartItemsString = localStorage.getItem('cartItems');
+    let cartItems: any[] = cartItemsString ? JSON.parse(cartItemsString) : [];
+
+    // Add the selected item group to the cart
+    cartItems.push(selectedItemGroup);
+
+    // Update local storage with the combined cart items
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    // Clear the selections
+    this.clearSelections();
+
+    // Ensure that the local storage is updated before navigating
+    setTimeout(() => {
+      // Calculate total before navigating
       this.calculateTotal();
-  
-      
+
+      // Navigate to the cart after local storage is updated and total is calculated
       this.router.navigate(['/addtocart']);
-    } else {
-      console.error('Please select exactly 4 savory items and 1 dessert.');
-    }
+    }, 0);
+  } else {
+    console.error('Please select exactly 4 savory items and 1 dessert.');
   }
+}
+
   
 
-  // Add this method to clear the selections after adding to cart
   clearSelections() {
     this.savoryItems.forEach(item => item.selected = false);
     this.dessertItems.forEach(item => item.selected = false);
   }
 
-  // Add this method to update local storage after modifying the cart
   updateLocalStorage() {
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
 
-  // Add this method to recalculate the total after modifying the cart
   calculateTotal() {
     this.totalAmount = this.cartItems.reduce((total, item) => {
       return total + item.price * item.quantity;

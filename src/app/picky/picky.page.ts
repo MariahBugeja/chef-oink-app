@@ -3,11 +3,11 @@ import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-meatpie',
-  templateUrl: './meatpie.page.html',
-  styleUrls: ['./meatpie.page.scss'],
+  selector: 'app-picky',
+  templateUrl: './picky.page.html',
+  styleUrls: ['./picky.page.scss'],
 })
-export class MeatpiePage  {
+export class PickyPage{
 
   
   selectedSegment: string = 'description';
@@ -30,10 +30,10 @@ export class MeatpiePage  {
 
   addtoCart() {
     const selectedItem: any = {
-      name: 'Meat pie',
-      price: 4.50,
+      name: 'Picky Eater',
+      price: 4.00,
       quantity: this.quantity,
-      imageUrl: "assets/7.png",
+      imageUrl: "assets/set2.png",
     };
   
     // Load existing cart items
