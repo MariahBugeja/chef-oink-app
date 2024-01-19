@@ -101,5 +101,5 @@
 </ion-card>
 
 
-<ion-button expand="full" color="primary" (click)="navigateToConfirmationPage()">Pay Now</ion-button>
+<ion-button expand="full" color="primary" (click)="navigateToConfirmationPage()" [disabled]="!isFormValid">Pay Now</ion-button>
 </ion-content>
