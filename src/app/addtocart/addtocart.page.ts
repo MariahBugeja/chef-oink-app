@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ChangeDetectionStrategy } from '@angular/core';
+
 
 
 @Component({
   selector: 'app-addtocart',
   templateUrl: './addtocart.page.html',
   styleUrls: ['./addtocart.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush, 
+
 })
 export class AddtocartPage implements OnInit {
   cartItems: any[] = [];
@@ -62,7 +66,6 @@ export class AddtocartPage implements OnInit {
   updateLocalStorage() {
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
-  
   checkout() {
     this.router.navigate(['/payment'], {
       state: {
@@ -70,6 +73,11 @@ export class AddtocartPage implements OnInit {
         totalAmount: this.totalAmount,
       },
     });
+  
+    // Clear the cart after checking out
+    localStorage.removeItem('cartItems');
+    this.cartItems = [];
+    this.totalAmount = 0;
   }
 
   goBack() {
