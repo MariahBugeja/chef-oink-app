@@ -37,6 +37,7 @@ export class Tab2Page {
   onSearch(event: any) {
     this.searchTerm = event.target.value.toLowerCase().trim();
 
+    //search
     if (this.searchTerm) {
       this.searchResults = this.items.filter(item =>
         item.name.toLowerCase().includes(this.searchTerm)
@@ -45,7 +46,7 @@ export class Tab2Page {
       this.searchResults = [];
     }
   }
-
+//goes to the selected items page
   onItemClick(item: any) {
     this.router.navigate(['/', item.id]);
   }
